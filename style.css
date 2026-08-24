@@ -17,10 +17,10 @@ body {
 .container {
   width: 100%;
   max-width: 900px;
-  padding: 40px 20px;
+  padding: 80px 20px;
   display: flex;
   flex-direction: column;
-  gap: 120px; /* Espaçamento entre cada seção ao rolar */
+  gap: 160px;
 }
 
 .card {
@@ -30,7 +30,7 @@ body {
   text-align: center;
 }
 
-/* Estilo do Título Principal com Imagem recortada */
+/* Estilo do Título com efeito Paralaxe */
 .title {
   font-size: 14rem;
   font-weight: 700;
@@ -38,9 +38,12 @@ body {
   letter-spacing: 5px;
   line-height: 0.9;
   
-  /* Faz a imagem ficar dentro das letras */
+  /* Efeito da imagem descer junto com a rolagem */
+  background-attachment: fixed;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  
+  /* Recorte da imagem no texto */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -48,7 +51,7 @@ body {
   margin-bottom: 25px;
 }
 
-/* Imagens de Fundo para cada Cidade */
+/* Imagens de Fundo */
 .title.giza {
   background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1200');
 }
@@ -93,9 +96,10 @@ body {
   color: #fff;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 768px) {
   .title {
     font-size: 6rem;
+    /* Em dispositivos móveis o 'attachment: fixed' pode causar bugs de renderização */
+    background-attachment: scroll;
   }
 }
