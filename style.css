@@ -22,6 +22,7 @@ body {
   padding: 60px 20px;
 }
 
+/* Título com Máscara e Movimento controlado pelo Scroll */
 .title {
   font-size: 16rem;
   font-weight: 700;
@@ -34,15 +35,29 @@ body {
   background-clip: text;
   color: transparent;
   
-  /* Configuração do Fundo */
+  /* Estilo da Imagem de Fundo */
   background-size: cover;
-  background-position: center 50%;
+  background-repeat: no-repeat;
+  
+  /* Animação conectada diretamente ao scroll da página */
+  animation: scrollImageMove linear both;
+  animation-timeline: view(); /* Controla a animação enquanto o elemento passa na tela */
+  animation-range: entry 0% exit 100%;
   
   margin-bottom: 30px;
-  will-change: background-position;
 }
 
-/* Imagens de fundo */
+/* Animação: Desloca a posição da imagem do topo (0%) até a base (100%) conforme você rola */
+@keyframes scrollImageMove {
+  from {
+    background-position: center 0%;
+  }
+  to {
+    background-position: center 100%;
+  }
+}
+
+/* Imagens das cidades */
 .title.giza {
   background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1600');
 }
