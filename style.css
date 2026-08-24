@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto:wght@400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px; /* Espaçamento entre cada seção ao rolar */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilo do Título Principal com Imagem recortada */
+.title {
+  font-size: 14rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 0.9;
+  
+  /* Faz a imagem ficar dentro das letras */
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  margin-bottom: 25px;
+}
+
+/* Imagens de Fundo para cada Cidade */
+.title.giza {
+  background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1200');
+}
+
+.title.paris {
+  background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200');
+}
+
+.title.dubai {
+  background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200');
+}
+
+.title.new-york {
+  background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1200');
+}
+
+/* Descrição */
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 650px;
+  margin-bottom: 20px;
+}
+
+/* Botão "Read More" */
+.btn {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid #333;
+  color: #333;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .title {
+    font-size: 6rem;
+  }
+}
