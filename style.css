@@ -16,11 +16,11 @@ body {
 
 .container {
   width: 100%;
-  max-width: 900px;
-  padding: 80px 20px;
+  max-width: 1200px;
+  padding: 100px 20px;
   display: flex;
   flex-direction: column;
-  gap: 160px;
+  gap: 180px;
 }
 
 .card {
@@ -30,42 +30,54 @@ body {
   text-align: center;
 }
 
-/* Estilo do Título com efeito Paralaxe */
+/* Título Gigante com Imagem dentro das letras */
 .title {
-  font-size: 14rem;
+  font-size: 18rem; /* Tamanho gigante do texto */
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 5px;
-  line-height: 0.9;
+  letter-spacing: 12px;
+  line-height: 0.85;
   
-  /* Efeito da imagem descer junto com a rolagem */
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-  
-  /* Recorte da imagem no texto */
+  /* Mascara a imagem no texto */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   
-  margin-bottom: 25px;
+  /* Ajuste do fundo para repetir verticalmente na animação */
+  background-size: cover;
+  background-repeat: repeat-y;
+  
+  /* Aplicação da animação das imagens descendo */
+  animation: moveDown 18s linear infinite;
+  
+  margin-bottom: 30px;
 }
 
-/* Imagens de Fundo */
+/* Animação que faz a imagem mover continuamente para baixo */
+@keyframes moveDown {
+  0% {
+    background-position: center 0%;
+  }
+  100% {
+    background-position: center 1000px; /* Altere o valor para ajustar a velocidade */
+  }
+}
+
+/* Imagens de fundo em alta definição */
 .title.giza {
-  background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1200');
+  background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1600');
 }
 
 .title.paris {
-  background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200');
+  background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1600');
 }
 
 .title.dubai {
-  background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200');
+  background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600');
 }
 
 .title.new-york {
-  background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1200');
+  background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1600');
 }
 
 /* Descrição */
@@ -75,13 +87,13 @@ body {
   line-height: 1.6;
   color: #555;
   max-width: 650px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 /* Botão "Read More" */
 .btn {
   display: inline-block;
-  padding: 8px 24px;
+  padding: 10px 28px;
   border: 1px solid #333;
   color: #333;
   text-decoration: none;
@@ -96,10 +108,16 @@ body {
   color: #fff;
 }
 
+/* Ajustes para telas menores (Tablets e Celulares) */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 11rem;
+  }
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: 6rem;
-    /* Em dispositivos móveis o 'attachment: fixed' pode causar bugs de renderização */
-    background-attachment: scroll;
+    letter-spacing: 4px;
   }
 }
