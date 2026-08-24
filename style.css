@@ -12,6 +12,7 @@ body {
   color: #333;
 }
 
+/* Cada seção preenche a tela */
 .section {
   min-height: 100vh;
   display: flex;
@@ -19,61 +20,52 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
-/* Título com Máscara e Movimento controlado pelo Scroll */
+/* Container do texto que segura o fundo Parallax */
+.text-wrapper {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  /* Mascara a imagem para dentro do texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  margin-bottom: 25px;
+}
+
+/* Título Gigante */
 .title {
   font-size: 16rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 6px;
   line-height: 0.85;
-  
-  /* Máscara de texto */
-  -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
-  
-  /* Estilo da Imagem de Fundo */
-  background-size: cover;
-  background-repeat: no-repeat;
-  
-  /* Animação conectada diretamente ao scroll da página */
-  animation: scrollImageMove linear both;
-  animation-timeline: view(); /* Controla a animação enquanto o elemento passa na tela */
-  animation-range: entry 0% exit 100%;
-  
-  margin-bottom: 30px;
 }
 
-/* Animação: Desloca a posição da imagem do topo (0%) até a base (100%) conforme você rola */
-@keyframes scrollImageMove {
-  from {
-    background-position: center 0%;
-  }
-  to {
-    background-position: center 100%;
-  }
-}
-
-/* Imagens das cidades */
-.title.giza {
+/* Imagens individuais fixadas no fundo */
+.text-wrapper.giza {
   background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1600');
 }
 
-.title.paris {
+.text-wrapper.paris {
   background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1600');
 }
 
-.title.dubai {
+.text-wrapper.dubai {
   background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600');
 }
 
-.title.new-york {
+.text-wrapper.new-york {
   background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1600');
 }
 
+/* Texto descritivo e Botão */
 .description {
   font-family: 'Roboto', sans-serif;
   font-size: 0.95rem;
@@ -100,6 +92,7 @@ body {
   color: #fff;
 }
 
+/* Responsividade para telas menores */
 @media (max-width: 1024px) {
   .title { font-size: 10rem; }
 }
